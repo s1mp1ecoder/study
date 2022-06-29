@@ -6,7 +6,7 @@ package com.zxs.study.classloader;
  * @author ZXS
  *
  */
-public class ClassLoaderProgressTest {
+public class ClassLoadProgressTest {
 
 	/**
 	 * 1.c++调用jvm.dll 开启虚拟机 
