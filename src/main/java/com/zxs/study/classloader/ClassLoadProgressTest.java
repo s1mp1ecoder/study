@@ -7,22 +7,9 @@ package com.zxs.study.classloader;
  */
 public class ClassLoadProgressTest {
 
-    /**
-     * 1.c++调用jvm.dll 开启虚拟机
-     * 2.c++调用sun.misc.Launcher的getLauncher();
-     * 3.c++调用launcher的getClassLoader()开始加载类;
-     */
-    /**
-     * 类加载过程 (懒加载 用才加载 不用不加载)
-     * 1.加载 把对应的class文件丢jvm内存
-     * 2.验证 验证class文件的语法
-     * 3.链接 将符号引用转换成直接引用(静态链接编译期就可以确定 动态链接 运行时期才可以确定多态)
-     * 4.准备 赋给类默认值(int是0 object是null boolean是false等)
-     * 5.初始化 赋给类指定的值（static int a=1 准备期a==0）
-     */
 
     static {
-        System.out.println("Inital ClassLoaderProgressTest");
+        System.out.println("Initial ClassLoaderProgressTest");
     }
 
     @SuppressWarnings("unused")
@@ -37,7 +24,7 @@ public class ClassLoadProgressTest {
 class A {
 
     static {
-        System.out.println("Inital A");
+        System.out.println("Initial A");
     }
 
     public A() {
@@ -49,7 +36,7 @@ class A {
 class B {
 
     static {
-        System.out.println("Inital B");
+        System.out.println("Initial B");
     }
 
     public B() {
