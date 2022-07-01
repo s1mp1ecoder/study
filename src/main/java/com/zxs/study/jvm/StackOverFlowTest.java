@@ -30,8 +30,6 @@ public class StackOverFlowTest {
                 run2();
             } catch (InterruptedException e) {
                 e.printStackTrace();
-            }catch (Throwable e){
-
             }
         }, "test").start();
 

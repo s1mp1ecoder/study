@@ -5,12 +5,22 @@ jvm内存模型
    线程栈:（每个线程都会分配 -Xss）每个线程私有的 方法（栈帧）的执行对应的就是在线程栈内入栈和弹栈
    堆:存放对象 线程共享 （-Xms -Xmx）
    方法区:存放类元信息（KlassPoint）+符号常量 -XX:MetaspaceSize -XX:MaxMetaspaceSize
-  3.字节码执行引擎 负责gc
+ 3.字节码执行引擎 负责gc
 
   方法区默认大小21m 达到该值会触发fullGC  用的直接内存
   堆=(eden区(8)+s1区(1)+s2区(1))(1/3)+老年代(2/3)
 
   jdk自带jvisuamvm 观察内存使用情况
+
+JVM对象创建与内存分配机制深度剖析
+
+-XX:+/-UseTLAB 是否使用线程本地缓存解决并发创建对象 失败 使用CAS
+
+ObjectHeader=MarkWorld+KlassPoint
+
+
+    // -XX:+UseCompressedOops           默认开启的压缩所有指针
+    // -XX:+UseCompressedClassPointers  默认开启的压缩对象头里的类型指针Klass Pointer
 
 
 
