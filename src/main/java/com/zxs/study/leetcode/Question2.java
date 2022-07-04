@@ -1,7 +1,5 @@
 package com.zxs.study.leetcode;
 
-import java.util.List;
-
 /**
  * 给你两个非空 的链表，表示两个非负的整数。它们每位数字都是按照逆序的方式存储的，并且每个节点只能存储一位数字。
  * 请你将两个数相加，并以相同形式返回一个表示和的链表。
@@ -29,12 +27,7 @@ public class Question2 {
 
     }
 
-    private static final ThreadLocal<Boolean> local = new ThreadLocal<Boolean>() {
-        @Override
-        protected Boolean initialValue() {
-            return false;
-        }
-    };
+    private static final ThreadLocal<Boolean> local = ThreadLocal.withInitial(() -> false);
 
     public ListNode addTwoNumbers2(ListNode l1, ListNode l2) {
         ListNode head = null, tail = null;
@@ -70,9 +63,9 @@ public class Question2 {
         if (l1 == null && l2 == null) {
             sum = 0;
             canReturn = true;
-        } else if (l1 == null && l2 != null) {
+        } else if (l1 == null) {
             sum = l2.val;
-        } else if (l1 != null && l2 == null) {
+        } else if (l2 == null) {
             sum = l1.val;
         } else {
             sum = l1.val + l2.val;
